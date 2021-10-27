@@ -1,0 +1,71 @@
+databaseChangeLog:
+  - changeSet:
+      id: city-table-create
+      author: vnorobio
+      changes:
+        - createTable:
+            tableName: city
+            columns:
+              - column:
+                  name: city_id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: city_code
+                  type: varchar(3)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: city_name
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: estate_code
+                  type: varchar(3)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: country_code
+                  type: varchar(3)
+                  constraints:
+                    nullable: false
+  - changeSet:
+      id: city-code-unique-const
+      author: vnorobio
+      changes:
+        - addUniqueConstraint:
+            columnNames: city_code
+            constraintName: city_code_uconst
+            tableName: city
+  - changeSet:
+      id: city-name-unique-const
+      author: vnorobio
+      changes:
+        - addUniqueConstraint:
+            columnNames: city_name
+            constraintName: city_name_uconst
+            tableName: city
+  - changeSet:
+      id: city-estate-foreing-key
+      author: vnorobio
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: estate_code
+            baseTableName: city
+            constraintName: fk_city_estate
+            referencedColumnNames: estate_code
+            referencedTableName: estate
+  - changeSet:
+      id: city-country-foreing-key
+      author: vnorobio
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: country_code
+            baseTableName: city
+            constraintName: fk_city_country
+            referencedColumnNames: country_code
+            referencedTableName: country

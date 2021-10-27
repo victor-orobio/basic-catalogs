@@ -1,0 +1,56 @@
+databaseChangeLog:
+  - changeSet:
+      id: estate-table-create
+      author: vnorobio
+      changes:
+        - createTable:
+            tableName: estate
+            columns:
+              - column:
+                  name: estate_id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: estate_code
+                  type: varchar(3)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: estate_name
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: country_code
+                  type: varchar(3)
+                  constraints:
+                    nullable: false
+  - changeSet:
+      id: estate-code-unique-const
+      author: vnorobio
+      changes:
+        - addUniqueConstraint:
+            columnNames: estate_code
+            constraintName: estate_code_uconst
+            tableName: estate
+  - changeSet:
+      id: estate-name-unique-const
+      author: vnorobio
+      changes:
+        - addUniqueConstraint:
+            columnNames: estate_name
+            constraintName: estate_name_uconst
+            tableName: estate
+  - changeSet:
+      id: estate-country-foreing-key
+      author: vnorobio
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: country_code
+            baseTableName: estate
+            constraintName: fk_estate_country
+            referencedColumnNames: country_code
+            referencedTableName: country

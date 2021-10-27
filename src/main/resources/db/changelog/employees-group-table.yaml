@@ -1,0 +1,41 @@
+databaseChangeLog:
+  - changeSet:
+      id: employees-group-table-create
+      author: vnorobio
+      changes:
+        - createTable:
+            tableName: employees_group
+            columns:
+              - column:
+                  name: group_id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: group_code
+                  type: varchar(55)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: group_description
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+  - changeSet:
+      id: group_code-unique-const
+      author: vnorobio
+      changes:
+        - addUniqueConstraint:
+            columnNames: group_code
+            constraintName: group_code_uconst
+            tableName: employees_group
+  - changeSet:
+      id: group_description-unique-const
+      author: vnorobio
+      changes:
+        - addUniqueConstraint:
+            columnNames: group_description
+            constraintName: group_description_uconst
+            tableName: employees_group

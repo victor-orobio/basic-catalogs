@@ -1,0 +1,221 @@
+databaseChangeLog:
+  - changeSet:
+      id: insert-countries-initial-data
+      author: vnorobio
+      comment: "Initial countries data"
+      changes:
+        - insert:
+            tableName: country
+            columns:
+              - column:
+                  name: country_code
+                  value: "ARG"
+              - column:
+                  name: country_name
+                  value: "Argentina"
+        - insert:
+            tableName: country
+            columns:
+              - column:
+                  name: country_code
+                  value: "AUS"
+              - column:
+                  name: country_name
+                  value: "Australia"
+        - insert:
+            tableName: country
+            columns:
+              - column:
+                  name: country_code
+                  value: "BRA"
+              - column:
+                  name: country_name
+                  value: "Brazil"
+        - insert:
+            tableName: country
+            columns:
+              - column:
+                  name: country_code
+                  value: "CAN"
+              - column:
+                  name: country_name
+                  value: "Canada"
+        - insert:
+            tableName: country
+            columns:
+              - column:
+                  name: country_code
+                  value: "CHL"
+              - column:
+                  name: country_name
+                  value: "Chile"
+        - insert:
+            tableName: country
+            columns:
+              - column:
+                  name: country_code
+                  value: "CHN"
+              - column:
+                  name: country_name
+                  value: "China"
+        - insert:
+            tableName: country
+            columns:
+              - column:
+                  name: country_code
+                  value: "COL"
+              - column:
+                  name: country_name
+                  value: "Colombia"
+        - insert:
+            tableName: country
+            columns:
+              - column:
+                  name: country_code
+                  value: "ESP"
+              - column:
+                  name: country_name
+                  value: "Espana"
+        - insert:
+            tableName: country
+            columns:
+              - column:
+                  name: country_code
+                  value: "TUR"
+              - column:
+                  name: country_name
+                  value: "Turquia"
+        - insert:
+            tableName: country
+            columns:
+              - column:
+                  name: country_code
+                  value: "UKR"
+              - column:
+                  name: country_name
+                  value: "Ukrania"
+  - changeSet:
+      id: insert-estates-initial-data
+      author: vnorobio
+      comment: "Initial estates data"
+      changes:
+        - insert:
+            tableName: estate
+            columns:
+              - column:
+                  name: estate_code
+                  value: "91"
+              - column:
+                  name: estate_name
+                  value: "Amazonas"
+              - column:
+                  name: country_code
+                  value: "COL"
+        - insert:
+            tableName: estate
+            columns:
+              - column:
+                  name: estate_code
+                  value: "05"
+              - column:
+                  name: estate_name
+                  value: "Antioquia"
+              - column:
+                  name: country_code
+                  value: "COL"
+        - insert:
+            tableName: estate
+            columns:
+              - column:
+                  name: estate_code
+                  value: "11"
+              - column:
+                  name: estate_name
+                  value: "Bogota D.C."
+              - column:
+                  name: country_code
+                  value: "COL"
+        - insert:
+            tableName: estate
+            columns:
+              - column:
+                  name: estate_code
+                  value: "15"
+              - column:
+                  name: estate_name
+                  value: "Boyaca"
+              - column:
+                  name: country_code
+                  value: "COL"
+        - insert:
+            tableName: estate
+            columns:
+              - column:
+                  name: estate_code
+                  value: "19"
+              - column:
+                  name: estate_name
+                  value: "Cauca"
+              - column:
+                  name: country_code
+                  value: "COL"
+        - insert:
+            tableName: estate
+            columns:
+              - column:
+                  name: estate_code
+                  value: "27"
+              - column:
+                  name: estate_name
+                  value: "Choco"
+              - column:
+                  name: country_code
+                  value: "COL"
+        - insert:
+            tableName: estate
+            columns:
+              - column:
+                  name: estate_code
+                  value: "52"
+              - column:
+                  name: estate_name
+                  value: "Narino"
+              - column:
+                  name: country_code
+                  value: "COL"
+        - insert:
+            tableName: estate
+            columns:
+              - column:
+                  name: estate_code
+                  value: "88"
+              - column:
+                  name: estate_name
+                  value: "San andres"
+              - column:
+                  name: country_code
+                  value: "COL"
+        - insert:
+            tableName: estate
+            columns:
+              - column:
+                  name: estate_code
+                  value: "73"
+              - column:
+                  name: estate_name
+                  value: "Tolima"
+              - column:
+                  name: country_code
+                  value: "COL"
+        - insert:
+            tableName: estate
+            columns:
+              - column:
+                  name: estate_code
+                  value: "76"
+              - column:
+                  name: estate_name
+                  value: "Valle del Cauca"
+              - column:
+                  name: country_code
+                  value: "COL"
