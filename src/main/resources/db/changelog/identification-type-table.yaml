@@ -1,0 +1,56 @@
+databaseChangeLog:
+  - changeSet:
+      id: identification-typetable-create
+      author: vnorobio
+      changes:
+        - createTable:
+            tableName: identification_type
+            columns:
+              - column:
+                  name: identification_type_id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: identification_type_code
+                  type: varchar(3)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: identification_type_description
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: country_code
+                  type: varchar(3)
+                  constraints:
+                    nullable: false
+  - changeSet:
+      id: identification-typecode-unique-const
+      author: vnorobio
+      changes:
+        - addUniqueConstraint:
+            columnNames: identification_type_code
+            constraintName: identification_type_code_uconst
+            tableName: identification_type
+  - changeSet:
+      id: identification-typename-unique-const
+      author: vnorobio
+      changes:
+        - addUniqueConstraint:
+            columnNames: identification_type_description
+            constraintName: identification_type_description_uconst
+            tableName: identification_type
+  - changeSet:
+      id: identification-typecountry-foreing-key
+      author: vnorobio
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: country_code
+            baseTableName: identification_type
+            constraintName: fk_identification_type_country
+            referencedColumnNames: country_code
+            referencedTableName: country

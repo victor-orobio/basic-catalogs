@@ -1,0 +1,41 @@
+databaseChangeLog:
+  - changeSet:
+      id: operative-center-table-create
+      author: vnorobio
+      changes:
+        - createTable:
+            tableName: operative_center
+            columns:
+              - column:
+                  name: operative_center_id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: operative_center_code
+                  type: varchar(55)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: operative_center_description
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+  - changeSet:
+      id: operative-center-code-unique-const
+      author: vnorobio
+      changes:
+        - addUniqueConstraint:
+            columnNames: operative_center_code
+            constraintName: operative_center_code_uconst
+            tableName: operative_center
+  - changeSet:
+      id: operative-center-description-unique-const
+      author: vnorobio
+      changes:
+        - addUniqueConstraint:
+            columnNames: operative_center_description
+            constraintName: operative_center_description_uconst
+            tableName: operative_center

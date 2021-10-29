@@ -1,0 +1,41 @@
+databaseChangeLog:
+  - changeSet:
+      id: cost-center-table-create
+      author: vnorobio
+      changes:
+        - createTable:
+            tableName: cost_center
+            columns:
+              - column:
+                  name: cost_center_id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: cost_center_code
+                  type: varchar(55)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: cost_center_description
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+  - changeSet:
+      id: cost-center-code-unique-const
+      author: vnorobio
+      changes:
+        - addUniqueConstraint:
+            columnNames: cost_center_code
+            constraintName: cost_center_code_uconst
+            tableName: cost_center
+  - changeSet:
+      id: cost-center-description-unique-const
+      author: vnorobio
+      changes:
+        - addUniqueConstraint:
+            columnNames: cost_center_description
+            constraintName: cost_center_description_uconst
+            tableName: cost_center
