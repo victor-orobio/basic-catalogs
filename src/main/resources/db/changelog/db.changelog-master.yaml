@@ -14,4 +14,8 @@ databaseChangeLog:
   - include:
       file: db/changelog/identification-type-table.yaml
   - include:
+      file: db/changelog/profile-table.yaml
+  - include:
+      file: db/changelog/user-table.yaml
+  - include:
       file: db/changelog/insert-data.yaml

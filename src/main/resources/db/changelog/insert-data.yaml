@@ -219,3 +219,35 @@ databaseChangeLog:
               - column:
                   name: country_code
                   value: "COL"
+  - changeSet:
+      id: insert-profile-initial-data
+      author: vnorobio
+      comment: "Initial profile data"
+      changes:
+        - insert:
+            tableName: profile
+            columns:
+              - column:
+                  name: profile_code
+                  value: "ADMIN"
+              - column:
+                  name: profile_description
+                  value: "System administrator"
+        - insert:
+            tableName: profile
+            columns:
+              - column:
+                  name: profile_code
+                  value: "PAYROLL"
+              - column:
+                  name: profile_description
+                  value: "Payroll management"
+        - insert:
+            tableName: profile
+            columns:
+              - column:
+                  name: profile_code
+                  value: "SCHEDULE"
+              - column:
+                  name: profile_description
+                  value: "Schedule management"

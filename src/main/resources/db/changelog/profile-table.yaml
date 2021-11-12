@@ -1,0 +1,41 @@
+databaseChangeLog:
+  - changeSet:
+      id: profile-table-create
+      author: vnorobio
+      changes:
+        - createTable:
+            tableName: profile
+            columns:
+              - column:
+                  name: profile_id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: profile_code
+                  type: varchar(55)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: profile_description
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+  - changeSet:
+      id: profile-code-unique-const
+      author: vnorobio
+      changes:
+        - addUniqueConstraint:
+            columnNames: profile_code
+            constraintName: profile_code_uconst
+            tableName: profile
+  - changeSet:
+      id: profile-description-unique-const
+      author: vnorobio
+      changes:
+        - addUniqueConstraint:
+            columnNames: profile_description
+            constraintName: profile_description_uconst
+            tableName: profile

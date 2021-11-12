@@ -1,0 +1,56 @@
+databaseChangeLog:
+  - changeSet:
+      id: user-table-create
+      author: vnorobio
+      changes:
+        - createTable:
+            tableName: user
+            columns:
+              - column:
+                  name: user_id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: user_email
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: user_name
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: profile_code
+                  type: varchar(55)
+                  constraints:
+                    nullable: false
+  - changeSet:
+      id: user-code-unique-const
+      author: vnorobio
+      changes:
+        - addUniqueConstraint:
+            columnNames: user_email
+            constraintName: user_email_uconst
+            tableName: user
+  - changeSet:
+      id: user-name-unique-const
+      author: vnorobio
+      changes:
+        - addUniqueConstraint:
+            columnNames: user_name
+            constraintName: user_name_uconst
+            tableName: user
+  - changeSet:
+      id: user-profile-foreing-key
+      author: vnorobio
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: profile_code
+            baseTableName: user
+            constraintName: fk_user_profile
+            referencedColumnNames: profile_code
+            referencedTableName: profile
