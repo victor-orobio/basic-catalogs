@@ -24,6 +24,6 @@ public class UserEntity {
     @Column(name = "user_name", nullable = false)
     private String name;
 
-    @Column(name = "profile_code", nullable = false)
+    @Column(name = "profile_code", nullable = false, length = 55)
     private  String profileCode;
 }
